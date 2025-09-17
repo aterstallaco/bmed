@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Medicine Research Lab</title>
+    
+    <!-- Load Tailwind CSS from CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        // Custom Tailwind CSS configuration to use UCI's official colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'uci-blue': '#1b3d6d',
+                        'uci-gold': '#ffc423',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f7fafc;
+        }
+
+        .hero-video-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        /* New styling for the overlay box to position it correctly */
+        .overlay-box {
+            position: absolute;
+            bottom: 3rem; /* Positions the box from the bottom */
+            right: 3rem;  /* Positions the box from the right */
+            max-width: 25rem; /* Limits the max width to make it more contained */
+            width: 90%; /* Ensures it's responsive on smaller screens */
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .overlay-box {
+                bottom: 5rem;
+                right: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="absolute top-0 w-full z-20 bg-gray-900 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Left side: Logo/Title -->
+            <a href="#" class="text-xl font-bold tracking-tight text-uci-gold">UCI Behavioral Medicine</a>
+            
+            <!-- Right side: Navigation Links -->
+            <ul class="flex space-x-6">
+                <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">About</a></li>
+                <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">Research</a></li>
+                <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">Publications</a></li>
+                <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">Contact</a></li>
+                <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">News</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background and Right-Aligned Overlay -->
+    <div class="hero-video-container">
+        <!-- The video element for the looping background -->
+        <video id="bg-video" autoplay loop muted playsinline>
+            <source src="blue loop.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Content section with the title and a blurred, transparent background box -->
+        <div class="overlay-box backdrop-blur-sm bg-white bg-opacity-10 p-8 md:p-12 rounded-3xl shadow-lg border border-white border-opacity-20 text-right">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+                Behavioral Medicine Research Lab
+            </h1>
+        </div>
+    </div>
+    
+    <!-- Main Content Section -->
+    <main class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Welcome to Our Lab</h2>
+        <p class="text-gray-600 leading-relaxed max-w-2xl">
+            Behavioral medicine is an interdisciplinary field that integrates behavioral, psychosocial, and biomedical sciences to advance the understanding of health and illness, and to apply this knowledge to prevention, diagnosis, treatment, and rehabilitation.</p>
+
+    <!-- Who We Are Section -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Who We Are</h2>
+            <p class="text-gray-600 leading-relaxed max-w-4xl mx-auto mb-8">
+               The Behavioral Medicine Research Lab (Bmed Lab) at the University of California, Irvine, conducts innovative research on biobehavioral processes that shape psychological adjustment and coping in the face of chronic disease and health-related adversity, with a particular focus on cancer survivorship.
+
+            </p>
+            <a href="#" class="bg-uci-blue text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-uci-gold transition-colors duration-200">Learn More About Our Team</a>
+        </div>
+    </section>
+
+    <!-- Featured Research Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Featured Research</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Research Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
+                    <img src="https://placehold.co/600x400/0A376F/FFFFFF?text=Research+1" alt="Research project image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">Area</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Description
+                        </p>
+                    </div>
+                </div>
+                <!-- Research Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
+                    <img src="https://placehold.co/600x400/0A376F/FFFFFF?text=Research+2" alt="Research project image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">Mind-Body Interventions</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Description.
+                        </p>
+                    </div>
+                </div>
+                <!-- Research Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-200">
+                    <img src="https://placehold.co/600x400/0A376F/FFFFFF?text=Research+3" alt="Research project image" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl text-gray-800 mb-2">Health Behaviors</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Footer Column 1 -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">About Us</h3>
+                <p class="text-sm">
+                    We are a leading research lab dedicated to advancing the field of behavioral medicine.
+                </p>
+            </div>
+            <!-- Footer Column 2 -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">Home</a></li>
+                    <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">Our Research</a></li>
+                    <li><a href="#" class="hover:text-uci-gold transition-colors duration-200">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Footer Column 3 -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Contact</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>University of California, Irvine</li>
+                    <li></li>
+                    <li>Irvine, CA 92697</li>
+                    <li><a href="mailto:info@example.com" class="hover:text-uci-gold transition-colors duration-200">info@example.com</a></li>
+                </ul>
+            </div>
+            <!-- Footer Column 4 (Social Media) -->
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <!-- Placeholder for social media icons -->
+                    <a href="#" class="text-gray-400 hover:text-uci-gold transition-colors duration-200">
+                        <!-- Replace with SVG or icon for social media -->
+                        Facebook
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-uci-gold transition-colors duration-200">
+                        <!-- Replace with SVG or icon for social media -->
+                        Twitter
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-uci-gold transition-colors duration-200">
+                        <!-- Replace with SVG or icon for social media -->
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
