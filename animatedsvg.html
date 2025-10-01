@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Medicine Research Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0083b3 0%, #255799 50%, #1b3d6d 100%);
+            opacity: 0.9;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100px) translateX(var(--drift)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            color: #ffffff;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 300;
+            line-height: 1.4;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content .lab-name {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+        }
+
+        /* Content below hero */
+        .content-section {
+            background: #ffffff;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            color: #555759;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .content-section p {
+            color: #555759;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-background"></div>
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>
+                <span class="lab-name">Behavioral Medicine Research Lab</span>
+                Advancing research on biobehavioral processes that shape psychological adjustment and coping in cancer survivorship
+            </h1>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2>About Our Research</h2>
+        <p>The Behavioral Medicine Research Lab (Bmed Lab) conducts innovative research on biobehavioral processes that shape psychological adjustment and coping in the face of chronic disease and health-related adversity, with a particular focus on cancer survivorship.</p>
+    </div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 40;
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Mix of blue and gold particles
+            const isGold = Math.random() > 0.7;
+            const color = isGold ? '#f0ab00' : '#ffffff';
+            const size = Math.random() * 4 + 2;
+            const startX = Math.random() * 100;
+            const drift = (Math.random() - 0.5) * 200;
+            const duration = Math.random() * 15 + 15;
+            const delay = Math.random() * 5;
+            
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.backgroundColor = color;
+            particle.style.left = startX + '%';
+            particle.style.setProperty('--drift', drift + 'px');
+            particle.style.animationDuration = duration + 's';
+            particle.style.animationDelay = delay + 's';
+            
+            particlesContainer.appendChild(particle);
+        }
+        
+        for (let i = 0; i < particleCount; i++) {
+            createParticle();
+        }
+    </script>
+</body>
+</html>
